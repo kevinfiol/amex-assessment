@@ -1,0 +1,52 @@
+{
+  "name": "amex-assessment",
+  "version": "0.1.0",
+  "scripts": {
+    "build": "vite build && npm run build:types",
+    "build:types": "tsc -p tsconfig.build.json",
+    "lint": "biome lint src",
+    "format": "biome format --indent-style=space --quote-style=single --write src",
+    "check": "tsc --noEmit",
+    "test": "vitest run --dir src",
+    "test:watch": "vitest watch --dir src",
+    "prepare": "husky"
+  },
+  "dependencies": {
+    "@testing-library/dom": "^10.4.0",
+    "@testing-library/jest-dom": "^6.6.3",
+    "@testing-library/react": "^16.2.0",
+    "@testing-library/user-event": "^14.6.1",
+    "@types/react": "^19.0.8",
+    "@types/react-dom": "^19.0.3",
+    "jsdom": "^26.0.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "typescript": "^5.7.3",
+    "vite": "^6.0.11",
+    "vitest": "^3.0.4"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^1.9.4",
+    "husky": "^9.1.7"
+  },
+  "peerDependencies": {
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "files": [
+    "dist"
+  ],
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    },
+    "./Modal": {
+      "import": "./dist/Modal.js",
+      "types": "./dist/Modal.d.ts"
+    }
+  }
+}
